@@ -8,26 +8,26 @@ function simpan() {
     console.log(keterangan.value)
 
     // kalo local storage blm ad isi
-    if(localStorage.getItem("mahasiswa")===null) {
+    if(localStorage.getItem("Produk")===null) {
         // simpan array kosong []
-        localStorage.setItem("mahasiswa", "[]")
+        localStorage.setItem("Produk", "[]")
     }
 
     // panggil local storage (konversi string => obj)
-    let data = JSON.parse(localStorage.getItem("mahasiswa"))
+    let data = JSON.parse(localStorage.getItem("Produk"))
     console.log(data)
 
     //simpan value npm, nama ke dalam obj data
     data.push({
-        npm: npm.value,
-        nama: nama.value,
-        img: img.value
+        namaBarang: namaBarang.value,
+        jumlah: jumlah.value,
+        keterangan: keterangan.value
     })
     console.log(data)
 
     //simpan data terbaru ke dalam local storage
     // konversi dari objek menjadi string
-    localStorage.setItem("mahasiswa", JSON.stringify(data))
+    localStorage.setItem("Produk", JSON.stringify(data))
 
     //panggil tampil()
     tampil()
@@ -35,19 +35,19 @@ function simpan() {
 
 function tampil() {
     //panggil slu local strg
-    let hasil = JSON.parse(localStorage.getItem("mahasiswa"))
+    let hasil = JSON.parse(localStorage.getItem("Produk"))
 
     //clear element ul
-    document.getElementById("list-mhs").innerHTML = " "
+    document.getElementById("list-produk").innerHTML = " "
 
     //lakukan perulangan (foreach)
     hasil.forEach(element => {
         // console.log(element)
-        document.getElementById("list-mhs").
+        document.getElementById("list-produk").
         innerHTML += `<div class="col-lg-4 col-md-6">
-        <h4 class="text-primary">${element.nama}</h4>
-        <h6 class="text-danger">${element.npm}</h6>
-        <img calss="img-fluid" src=${element.img}/>
+        <h4 class="text-primary">${element.namaBarang}</h4>
+        <h6 class="text-danger">${element.jumlah}</h6>
+        <p class="text-muted">${element.keterangan}</p>
         </div>`
     });
 }
