@@ -8,7 +8,7 @@ function simpan() {
     console.log(keterangan.value)
 
     // kalo local storage blm ad isi
-    if(localStorage.getItem("Produk")===null) {
+    if (localStorage.getItem("Produk") === null) {
         // simpan array kosong []
         localStorage.setItem("Produk", "[]")
     }
@@ -40,11 +40,16 @@ function tampil() {
     //clear element ul
     document.getElementById("list-produk").innerHTML = " "
 
+    const myCollapsible = document.getElementById('list-produk')
+    myCollapsible.addEventListener('hidden.bs.collapse', event => {
+        Hasil
+    })
+
     //lakukan perulangan (foreach)
     hasil.forEach(element => {
         // console.log(element)
         document.getElementById("list-produk").
-        innerHTML += `<div class="col-lg-4 col-md-6">
+            innerHTML += `<div class="col-lg-4 col-md-6">
         <h4 style="background-color: #759fcc; color: white; padding: 10px;">${element.namaBarang}</h4>
         <h6 class="text-primary">${element.jumlah}</h6>
         <p class="text-muted">${element.keterangan}</p>
