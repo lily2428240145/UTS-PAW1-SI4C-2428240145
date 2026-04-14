@@ -49,8 +49,8 @@ function tampil() {
     hasil.forEach(element => {
         // console.log(element)
         document.getElementById("list-produk").
-            innerHTML += `<div class="col-lg-4 col-md-6">
-        <h4 style="background-color: #759fcc; color: white; padding: 10px;">${element.namaBarang}</h4>
+            innerHTML += `<div class="col-lg-3 col-md-6 col-sm-12">
+        <h4 style="background-color: #759fcc; color: white; padding: 10px;" class="rounded mt-4">${element.namaBarang}</h4>
         <h6 class="text-primary">${element.jumlah}</h6>
         <p class="text-muted">${element.keterangan}</p>
         </div>`
